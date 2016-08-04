@@ -74,7 +74,6 @@
             // 
             // Metric_Information
             // 
-            this.Metric_Information.Controls.Add(this.Imperial_information);
             this.Metric_Information.Controls.Add(this.KiloLbl);
             this.Metric_Information.Controls.Add(this.inchesLbl);
             this.Metric_Information.Controls.Add(this.feetLbl);
@@ -83,7 +82,7 @@
             this.Metric_Information.Controls.Add(this.FeetTxtBx);
             this.Metric_Information.Controls.Add(this.WeightLbl);
             this.Metric_Information.Controls.Add(this.HeightLbl);
-            this.Metric_Information.Location = new System.Drawing.Point(74, 71);
+            this.Metric_Information.Location = new System.Drawing.Point(95, 81);
             this.Metric_Information.Name = "Metric_Information";
             this.Metric_Information.Size = new System.Drawing.Size(483, 180);
             this.Metric_Information.TabIndex = 3;
@@ -212,7 +211,7 @@
             this.Imperial_information.Controls.Add(this.CmTxtBx);
             this.Imperial_information.Controls.Add(this.label5);
             this.Imperial_information.Controls.Add(this.label6);
-            this.Imperial_information.Location = new System.Drawing.Point(126, 0);
+            this.Imperial_information.Location = new System.Drawing.Point(311, 60);
             this.Imperial_information.Name = "Imperial_information";
             this.Imperial_information.Size = new System.Drawing.Size(483, 180);
             this.Imperial_information.TabIndex = 8;
@@ -288,6 +287,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(659, 1057);
+            this.Controls.Add(this.Imperial_information);
             this.Controls.Add(this.MetricButton);
             this.Controls.Add(this.ImperialButton);
             this.Controls.Add(this.label1);

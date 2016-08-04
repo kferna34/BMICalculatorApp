@@ -48,10 +48,11 @@ namespace BMICalculatorApp
             {
                 Imperial_information.Visible = true;
             }
-            else if (ImperialButton.Checked == false)
+            else if ( ImperialButton.Checked == false )
             {
                 Imperial_information.Visible = false;
             }
+            
            
         }
 
