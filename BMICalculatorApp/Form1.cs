@@ -22,27 +22,7 @@ namespace BMICalculatorApp
             InitializeComponent();
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void INFOHOLDER_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void WeightLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
         {
 
         }
@@ -79,17 +59,7 @@ namespace BMICalculatorApp
 
         }
 
-        private void FeetTxtBx_TextChanged(object sender, EventArgs e)
-        {
-            Console.ReadLine();
-        }
-
         private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void imp_info(object sender, EventArgs e)
         {
 
         }
@@ -115,6 +85,10 @@ namespace BMICalculatorApp
             //Visibility of the group box
             Imperial_information.Visible = false;
             Metric_Information.Visible = false;
+            ResultTextBx.Visible = false;
+            BMI_ResultLbl.Visible = false;
+            MetricButton.Checked = false;
+            ImperialButton.Checked = false;
         }
 
         private void Calculate_Click(object sender, EventArgs e)
@@ -130,25 +104,23 @@ namespace BMICalculatorApp
             {
                 //converting textbox to double rather than string
 
-                weightI = Convert.ToDouble(LblTxtBx.Text="");
-                weightM = Convert.ToDouble(KiloTextBox.Text = "");
-                //heightI = Convert.ToDouble(InTxtBx.Text);
-                //heightM = Convert.ToDouble(CmTextBox.Text);
+                weightI = Convert.ToDouble(LblTxtBx.Text);
+                weightM = Convert.ToDouble(KiloTextBox.Text);
+                heightI = Convert.ToDouble(InTxtBx.Text);
+                heightM = Convert.ToDouble(CmTextBox.Text);
 
             }
             catch (Exception)
             {
                 //MessageBox.Show(" Please make sure all fields are filled");
             }
-            if (LblTxtBx.Text == "" || CmTextBox.Text == "")
+            if (LblTxtBx.Text == "" && InTxtBx.Text == "" || CmTextBox.Text == "" && KiloTextBox.Text == "")
             {
                 CmTextBox.Focus();
                 CmTextBox.SelectAll();
                 LblTxtBx.Focus();
-                LblTxtBx.SelectAll();
-
-                if (InTxtBx.Text == "" || KiloTextBox.Text == "")
-                    InTxtBx.Focus();
+                LblTxtBx.SelectAll();            
+                InTxtBx.Focus();
                 InTxtBx.SelectAll();
                 KiloTextBox.Focus();
                 KiloTextBox.SelectAll();
@@ -157,31 +129,35 @@ namespace BMICalculatorApp
             {
                 MessageBox.Show("Please make sure all values are positive");
             }
-            else if (heightI < 0 && heightM < 0 || weightI < 0 && weightM < 0)
+            else if (heightI > 0 && heightM > 0 || weightI > 0 && weightM > 0)
             {
                 if (ImperialButton.Checked == true)
                 {
                     BMI = (weightI * 703) / (heightI * heightI);
-                    ResultTextBx.Text = string.Format("{0:f1}");
+                    ResultTextBx.Text = string.Format("{0:f1}"+BMI);
                     ResultTextBx.BackColor = Color.AntiqueWhite;
                     if (BMI < 18.5)
                     {
-                        this.ResultTextBx.Text = "Underweight" ;
+                        this.ResultTextBx.Text=("Underweight") ;
+                        MessageBox.Show("NORMAL");
 
                     }
                     else if (BMI >= 18.5 && BMI <= 24.9)
                     {
-                        this.ResultTextBx.Text = "Normal";
+                        this.ResultTextBx.Text = ("Normal");
+                        MessageBox.Show("NORMAL");
 
                     }
                     else if (BMI >= 25 && BMI <= 29.9)
                     {
-                        this.ResultTextBx.Text = "Overweight";
+                        this.ResultTextBx.Text = ("Overweight");
+                        MessageBox.Show("NORMAL");
 
                     }
                     else if (BMI >= 30)
                     {
-                        this.ResultTextBx.Text = "Obese";
+                        this.ResultTextBx.Text =( "Obese");
+                        MessageBox.Show("NORMAL");
                     }
                 }
                 try//metric
@@ -196,41 +172,59 @@ namespace BMICalculatorApp
                 if (MetricButton.Checked == true)
                 {
                     BMI = weightM / ((heightM * heightM) / 10000);
-                    ResultTextBx.Text =("{0:f1}");
+                    ResultTextBx.Text =("{0:f1}"+BMI);
                     ResultTextBx.BackColor = Color.AntiqueWhite;
                     if (BMI < 18.5)
                     {
-                        this.ResultTextBx.Text = "Underweight" ;
+                        this.ResultTextBx.Text = ("Underweight" );
+                        MessageBox.Show("NORMAL");
 
                     }
                     else if (BMI >= 18.5 && BMI <= 24.9)
                     {
-                        this.ResultTextBx.Text = "Normal";
+                        this.ResultTextBx.Text = ("Normal");
+                        MessageBox.Show("NORMAL");
 
                     }
                     else if (BMI >= 25 && BMI <= 29.9)
                     {
-                        this.ResultTextBx.Text = "Overweight";
+                        this.ResultTextBx.Text = ("Overweight");
+                        MessageBox.Show("NORMAL");
 
                     }
                     else if (BMI >= 30)
                     {
-                        this.ResultTextBx.Text = "Obese"; 
+                        this.ResultTextBx.Text = ("Obese");
+                        MessageBox.Show("NORMAL");
                     }
 
                 }
             }
         }
-        private void LblTxtBx_TextChanged(object sender, EventArgs e)
-        {
-
-
-
-        }
 
         private void ResultTextBx_TextChanged(object sender, EventArgs e)
         {
+            ResultTextBx.Text = ("{0:f1}");
+            ResultTextBx.BackColor = Color.AntiqueWhite;
+            
+    }
 
+        private void LblTxtBx_TextChanged(object sender, KeyPressEventArgs e)
+        {
+            char digit = e.KeyChar;
+            if (!Char.IsDigit(digit) && digit != 8 && digit != 46)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void imp_info(object sender, KeyPressEventArgs e)
+        {
+            char digit = e.KeyChar;
+            if (!Char.IsDigit(digit) && digit != 8 && digit != 46)
+            {
+                e.Handled = true;
+            }
         }
     }
 }

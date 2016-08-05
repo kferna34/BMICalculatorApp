@@ -74,16 +74,16 @@
             // 
             // Metric_Information
             // 
-            this.Metric_Information.BackColor = System.Drawing.Color.White;
+            this.Metric_Information.BackColor = System.Drawing.Color.Gainsboro;
             this.Metric_Information.Controls.Add(this.KiloLbl);
             this.Metric_Information.Controls.Add(this.inchesLbl);
             this.Metric_Information.Controls.Add(this.KiloTextBox);
             this.Metric_Information.Controls.Add(this.CmTextBox);
             this.Metric_Information.Controls.Add(this.WeightLbl);
             this.Metric_Information.Controls.Add(this.HeightLbl);
-            this.Metric_Information.Location = new System.Drawing.Point(95, 69);
+            this.Metric_Information.Location = new System.Drawing.Point(105, 51);
             this.Metric_Information.Name = "Metric_Information";
-            this.Metric_Information.Size = new System.Drawing.Size(477, 180);
+            this.Metric_Information.Size = new System.Drawing.Size(477, 210);
             this.Metric_Information.TabIndex = 3;
             this.Metric_Information.TabStop = false;
             this.Metric_Information.UseCompatibleTextRendering = true;
@@ -95,7 +95,7 @@
             // KiloLbl
             // 
             this.KiloLbl.AutoSize = true;
-            this.KiloLbl.Location = new System.Drawing.Point(243, 97);
+            this.KiloLbl.Location = new System.Drawing.Point(255, 97);
             this.KiloLbl.Name = "KiloLbl";
             this.KiloLbl.Size = new System.Drawing.Size(37, 31);
             this.KiloLbl.TabIndex = 7;
@@ -119,6 +119,7 @@
             this.KiloTextBox.Size = new System.Drawing.Size(72, 38);
             this.KiloTextBox.TabIndex = 4;
             this.KiloTextBox.UseWaitCursor = true;
+            this.KiloTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.imp_info);
             // 
             // CmTextBox
             // 
@@ -127,6 +128,7 @@
             this.CmTextBox.Size = new System.Drawing.Size(72, 38);
             this.CmTextBox.TabIndex = 3;
             this.CmTextBox.UseWaitCursor = true;
+            this.CmTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.imp_info);
             // 
             // WeightLbl
             // 
@@ -150,16 +152,16 @@
             // 
             // Imperial_information
             // 
-            this.Imperial_information.BackColor = System.Drawing.Color.White;
+            this.Imperial_information.BackColor = System.Drawing.Color.Gainsboro;
             this.Imperial_information.Controls.Add(this.LbsLbl);
             this.Imperial_information.Controls.Add(this.InLbl);
             this.Imperial_information.Controls.Add(this.LblTxtBx);
             this.Imperial_information.Controls.Add(this.InTxtBx);
             this.Imperial_information.Controls.Add(this.label5);
             this.Imperial_information.Controls.Add(this.label6);
-            this.Imperial_information.Location = new System.Drawing.Point(95, 63);
+            this.Imperial_information.Location = new System.Drawing.Point(105, 45);
             this.Imperial_information.Name = "Imperial_information";
-            this.Imperial_information.Size = new System.Drawing.Size(477, 180);
+            this.Imperial_information.Size = new System.Drawing.Size(477, 210);
             this.Imperial_information.TabIndex = 8;
             this.Imperial_information.TabStop = false;
             this.Imperial_information.UseCompatibleTextRendering = true;
@@ -171,7 +173,7 @@
             // LbsLbl
             // 
             this.LbsLbl.AutoSize = true;
-            this.LbsLbl.Location = new System.Drawing.Point(243, 97);
+            this.LbsLbl.Location = new System.Drawing.Point(243, 96);
             this.LbsLbl.Name = "LbsLbl";
             this.LbsLbl.Size = new System.Drawing.Size(42, 31);
             this.LbsLbl.TabIndex = 7;
@@ -181,7 +183,7 @@
             // InLbl
             // 
             this.InLbl.AutoSize = true;
-            this.InLbl.Location = new System.Drawing.Point(229, 44);
+            this.InLbl.Location = new System.Drawing.Point(243, 44);
             this.InLbl.Name = "InLbl";
             this.InLbl.Size = new System.Drawing.Size(31, 31);
             this.InLbl.TabIndex = 5;
@@ -196,7 +198,7 @@
             this.LblTxtBx.Size = new System.Drawing.Size(72, 38);
             this.LblTxtBx.TabIndex = 4;
             this.LblTxtBx.UseWaitCursor = true;
-            this.LblTxtBx.TextChanged += new System.EventHandler(this.LblTxtBx_TextChanged);
+            this.LblTxtBx.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.LblTxtBx_TextChanged);
             // 
             // InTxtBx
             // 
@@ -204,10 +206,10 @@
             this.InTxtBx.HideSelection = false;
             this.InTxtBx.Location = new System.Drawing.Point(165, 37);
             this.InTxtBx.Name = "InTxtBx";
-            this.InTxtBx.Size = new System.Drawing.Size(58, 38);
+            this.InTxtBx.Size = new System.Drawing.Size(72, 38);
             this.InTxtBx.TabIndex = 2;
             this.InTxtBx.UseWaitCursor = true;
-            this.InTxtBx.TextChanged += new System.EventHandler(this.imp_info);
+            this.InTxtBx.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.imp_info);
             // 
             // label5
             // 
@@ -266,9 +268,11 @@
             // 
             // ResultTextBx
             // 
+            this.ResultTextBx.BackColor = System.Drawing.Color.Silver;
             this.ResultTextBx.Location = new System.Drawing.Point(105, 376);
             this.ResultTextBx.Multiline = true;
             this.ResultTextBx.Name = "ResultTextBx";
+            this.ResultTextBx.ReadOnly = true;
             this.ResultTextBx.Size = new System.Drawing.Size(467, 153);
             this.ResultTextBx.TabIndex = 9;
             this.ResultTextBx.Visible = false;
@@ -278,7 +282,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
+            this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(659, 1057);
             this.Controls.Add(this.ResultTextBx);
             this.Controls.Add(this.Imperial_information);
