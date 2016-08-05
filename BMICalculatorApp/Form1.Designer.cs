@@ -268,6 +268,7 @@
             // 
             this.ResultTextBx.Location = new System.Drawing.Point(105, 376);
             this.ResultTextBx.Name = "ResultTextBx";
+            this.ResultTextBx.ReadOnly = true;
             this.ResultTextBx.Size = new System.Drawing.Size(444, 38);
             this.ResultTextBx.TabIndex = 9;
             this.ResultTextBx.Visible = false;

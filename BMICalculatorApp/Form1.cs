@@ -131,14 +131,13 @@ namespace BMICalculatorApp
                 //converting textbox to double rather than string
 
                 weightI = Convert.ToDouble(LblTxtBx.Text);
-               // weightM = Convert.ToDouble(KiloTextBox.Text);
+                weightM = Convert.ToDouble(KiloTextBox.Text);
                 heightI = Convert.ToDouble(InTxtBx.Text);
-              //  heightM = Convert.ToDouble(CmTextBox.Text);
+                heightM = Convert.ToDouble(CmTextBox.Text);
 
             }
             catch (Exception)
             {
-
                 MessageBox.Show(" Please make sure all fields are filled");
             }
             if (LblTxtBx.Text == "" || CmTextBox.Text == "")
@@ -147,39 +146,69 @@ namespace BMICalculatorApp
                 CmTextBox.SelectAll();
                 LblTxtBx.Focus();
                 LblTxtBx.SelectAll();
-                //InTxtBx.Focus();
-                //InTxtBx.SelectAll();
-                //KiloTextBox.Focus();
-                //KiloTextBox.SelectAll();
+
+                if (InTxtBx.Text == "" || KiloTextBox.Text == "")
+                InTxtBx.Focus();
+                InTxtBx.SelectAll();
+                KiloTextBox.Focus();
+                KiloTextBox.SelectAll();
             }
-            //else if (heightI < 0 && heightM < 0 || weightI < 0 && weightM < 0)
-            //{
-            //    MessageBox.Show("Please make sure all values are positive");
-            //}
             else if (heightI < 0 && heightM < 0 || weightI < 0 && weightM < 0)
             {
-                if (ImperialButton.Checked == true)
+                MessageBox.Show("Please make sure all values are positive");
+            }
+            else if (heightI < 0 && heightM < 0 || weightI < 0 && weightM < 0)
+            {
+                if (ImperialButton.Checked == true && Imperial_information.Visible == true)
                 {
                     BMI = (weightI * 703) / (heightI * heightI);
+                    ResultTextBx.Text = string.Format("{0:f1}", BMI);
+                    ResultTextBx.BackColor = Color.AntiqueWhite;
                     if (BMI < 18.5)
                     {
-                        this.ResultTextBx.Text = ("Underweight");
+                        ResultTextBx.Text = ("Underweight");
 
                     }
                     else if (BMI >= 18.5 && BMI <= 24.9)
                     {
-                        this.ResultTextBx.Text = ("Normal");
+                        ResultTextBx.Text = ("Normal");
 
                     }
                     else if (BMI >= 25 && BMI <= 29.9)
                     {
-                        this.ResultTextBx.Text = ("Overweight");
+                        ResultTextBx.Text = ("Overweight");
 
                     }
                     else if (BMI >= 30)
                     {
-                        this.ResultTextBx.Text = ("Obese");
+                        ResultTextBx.Text = ("Obese");
                     }
+                }
+                else if (MetricButton.Checked == true && Imperial_information.Visible == true)
+                {
+                    BMI = weightM / ((heightM * heightM) / 10000);
+                    ResultTextBx.Text = string.Format("{0:f1}", BMI);
+                    ResultTextBx.BackColor = Color.AntiqueWhite;
+                    if (BMI < 18.5)
+                    {
+                        ResultTextBx.Text = ("Underweight");
+
+                    }
+                    else if (BMI >= 18.5 && BMI <= 24.9)
+                    {
+                        ResultTextBx.Text = ("Normal");
+
+                    }
+                    else if (BMI >= 25 && BMI <= 29.9)
+                    {
+                        ResultTextBx.Text = ("Overweight");
+
+                    }
+                    else if (BMI >= 30)
+                    {
+                        ResultTextBx.Text = ("Obese");
+                    }
+
                 }
             }
         }
