@@ -48,6 +48,7 @@
             this.ImperialButton = new System.Windows.Forms.RadioButton();
             this.MetricButton = new System.Windows.Forms.RadioButton();
             this.ResultTextBx = new System.Windows.Forms.TextBox();
+            this.ValueTextBox = new System.Windows.Forms.TextBox();
             this.Metric_Information.SuspendLayout();
             this.Imperial_information.SuspendLayout();
             this.SuspendLayout();
@@ -209,6 +210,7 @@
             this.InTxtBx.Size = new System.Drawing.Size(72, 38);
             this.InTxtBx.TabIndex = 2;
             this.InTxtBx.UseWaitCursor = true;
+            this.InTxtBx.TextChanged += new System.EventHandler(this.InTxtBx_TextChanged);
             this.InTxtBx.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.imp_info);
             // 
             // label5
@@ -273,10 +275,21 @@
             this.ResultTextBx.Multiline = true;
             this.ResultTextBx.Name = "ResultTextBx";
             this.ResultTextBx.ReadOnly = true;
-            this.ResultTextBx.Size = new System.Drawing.Size(467, 153);
+            this.ResultTextBx.Size = new System.Drawing.Size(467, 47);
             this.ResultTextBx.TabIndex = 9;
             this.ResultTextBx.Visible = false;
             this.ResultTextBx.TextChanged += new System.EventHandler(this.ResultTextBx_TextChanged);
+            // 
+            // ValueTextBox
+            // 
+            this.ValueTextBox.BackColor = System.Drawing.Color.Silver;
+            this.ValueTextBox.Location = new System.Drawing.Point(105, 429);
+            this.ValueTextBox.Multiline = true;
+            this.ValueTextBox.Name = "ValueTextBox";
+            this.ValueTextBox.ReadOnly = true;
+            this.ValueTextBox.Size = new System.Drawing.Size(467, 47);
+            this.ValueTextBox.TabIndex = 10;
+            this.ValueTextBox.Visible = false;
             // 
             // BMI_Form
             // 
@@ -284,6 +297,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(659, 1057);
+            this.Controls.Add(this.ValueTextBox);
             this.Controls.Add(this.ResultTextBx);
             this.Controls.Add(this.Imperial_information);
             this.Controls.Add(this.MetricButton);
@@ -330,6 +344,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox ResultTextBx;
+        private System.Windows.Forms.TextBox ValueTextBox;
     }
 }
 

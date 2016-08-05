@@ -99,82 +99,111 @@ namespace BMICalculatorApp
 
             //imperial inches, pounds
             //metric  kilos, cm          
-            double weightI = Convert.ToDouble(LblTxtBx.Text);
-            double weightM = Convert.ToDouble(KiloTextBox.Text);
-            double heightI = Convert.ToDouble(InTxtBx.Text);
-            double heightM = Convert.ToDouble(CmTextBox.Text);
-
+            //calculation if the user choses imperial
             if (ImperialButton.Checked == true)
             {
-                double BMI_Imperial = (weightI * 703) / (heightI * heightI);
-                ResultTextBx.Text = string.Format("{0:f1}" + BMI_Imperial);
-                ResultTextBx.BackColor = Color.AntiqueWhite;
+                Imperial_information.Visible = true;
+                double weightI = Convert.ToDouble(LblTxtBx.Text);
+                double heightI = Convert.ToDouble(InTxtBx.Text);
 
+                double BMI_Imperial = (weightI * 703) / (heightI * heightI);
+
+                ResultTextBx.Text = ("" + BMI_Imperial);
+                ResultTextBx.BackColor = Color.Ivory;
+                ValueTextBox.Visible = true;
                 if (BMI_Imperial < 18.5)
                 {
+                    ResultTextBx.BackColor = Color.Blue;
+                    ValueTextBox.BackColor = Color.Blue;
                     this.ResultTextBx.Text = ("Underweight");
+                    this.ValueTextBox.Text = Convert.ToString(BMI_Imperial);
                 }
                 else if (BMI_Imperial >= 18.5 && BMI_Imperial <= 24.9)
                 {
+                    ResultTextBx.BackColor = Color.Green;
+                    ValueTextBox.BackColor = Color.Green;
                     this.ResultTextBx.Text = ("Normal");
+                    this.ValueTextBox.Text = Convert.ToString(BMI_Imperial);
                 }
                 else if (BMI_Imperial >= 25 && BMI_Imperial <= 29.9)
                 {
+                    ResultTextBx.BackColor = Color.Yellow;
+                    ValueTextBox.BackColor = Color.Yellow;
                     this.ResultTextBx.Text = ("Overweight");
+                    this.ValueTextBox.Text = Convert.ToString(BMI_Imperial);
                 }
                 else if (BMI_Imperial >= 30)
                 {
+                    ResultTextBx.BackColor = Color.Red;
+                    ValueTextBox.BackColor = Color.Red;
                     this.ResultTextBx.Text = ("Obese");
+                    this.ValueTextBox.Text = Convert.ToString(BMI_Imperial);
                 }
-                if (MetricButton.Checked == true)
-                {
-                    double BMI_Metric = weightM / ((heightM * heightM) / 10000);
-                    ResultTextBx.Text = ("{0:f1}" + BMI_Metric);
-                    ResultTextBx.BackColor = Color.AntiqueWhite;
+            }
+            //calculations if the user choses metric
+            if (MetricButton.Checked == true)
+            {
+                Metric_Information.Visible = true;
+                double weightM = Convert.ToDouble(KiloTextBox.Text);
+                double heightM = Convert.ToDouble(CmTextBox.Text);
+                double BMI_Metric = weightM / ((heightM * heightM) / 10000);
+                ValueTextBox.Visible = true;
+                ResultTextBx.Text = Convert.ToString(BMI_Metric);
+                ResultTextBx.BackColor = Color.Ivory;
 
-                    if (BMI_Metric < 18.5)
-                    {
-                        this.ResultTextBx.Text = ("Underweight");
-                    }
-                    else if (BMI_Metric >= 18.5 && BMI_Metric <= 24.9)
-                    {
-                        this.ResultTextBx.Text = ("Normal");
-                    }
-                    else if (BMI_Metric >= 25 && BMI_Metric <= 29.9)
-                    {
-                        this.ResultTextBx.Text = ("Overweight");
-                    }
-                    else if (BMI_Metric >= 30)
-                    {
-                        this.ResultTextBx.Text = ("Obese");
-                        MessageBox.Show("NORMAL");
-                    }
+                if (BMI_Metric < 18.5)
+                {  ResultTextBx.BackColor = Color.Blue;
+                    ValueTextBox.BackColor = Color.Blue;
+                    this.ResultTextBx.Text = ("Underweight");           
+                    this.ValueTextBox.Text = Convert.ToString(BMI_Metric);
+                }
+                else if (BMI_Metric >= 18.5 && BMI_Metric <= 24.9)
+                {
+                    ResultTextBx.BackColor = Color.Green;
+                    ValueTextBox.BackColor = Color.Green;
+                    this.ResultTextBx.Text = ("Normal");
+                    
+                    this.ValueTextBox.Text = Convert.ToString(BMI_Metric);
+
+                }
+                else if (BMI_Metric >= 25 && BMI_Metric <= 29.9)
+                {
+                    ResultTextBx.BackColor = Color.Yellow;
+                    ValueTextBox.BackColor = Color.Yellow;
+                    this.ResultTextBx.Text = ("Overweight");
+                    this.ValueTextBox.Text = Convert.ToString(BMI_Metric);
+
+                }
+                else if (BMI_Metric >= 30)
+                {
+                    ResultTextBx.BackColor = Color.Red;
+                    ValueTextBox.BackColor = Color.Red;
+                    this.ResultTextBx.Text = ("Obese");
+                    this.ValueTextBox.Text = Convert.ToString(BMI_Metric);
+
+
                 }
             }
         }
         private void ResultTextBx_TextChanged(object sender, EventArgs e)
         {
-            ResultTextBx.Text = ("{0:f1}");
-            ResultTextBx.BackColor = Color.AntiqueWhite;
+
 
         }
 
         private void LblTxtBx_TextChanged(object sender, KeyPressEventArgs e)
         {
-            char digit = e.KeyChar;
-            if (!Char.IsDigit(digit) && digit != 8 && digit != 46)
-            {
-                e.Handled = true;
-            }
+            Convert.ToDouble(Console.ReadLine());
         }
 
         private void imp_info(object sender, KeyPressEventArgs e)
         {
-            char digit = e.KeyChar;
-            if (!Char.IsDigit(digit) && digit != 8 && digit != 46)
-            {
-                e.Handled = true;
-            }
+            Convert.ToDouble(Console.ReadLine());
+        }
+
+        private void InTxtBx_TextChanged(object sender, EventArgs e)
+        {
+            Convert.ToDouble(Console.ReadLine());
         }
     }
 }
