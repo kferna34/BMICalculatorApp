@@ -34,14 +34,14 @@
             this.KiloLbl = new System.Windows.Forms.Label();
             this.inchesLbl = new System.Windows.Forms.Label();
             this.KiloTextBox = new System.Windows.Forms.TextBox();
-            this.InchesTextBox = new System.Windows.Forms.TextBox();
+            this.CmTextBox = new System.Windows.Forms.TextBox();
             this.WeightLbl = new System.Windows.Forms.Label();
             this.HeightLbl = new System.Windows.Forms.Label();
             this.Imperial_information = new System.Windows.Forms.GroupBox();
             this.LbsLbl = new System.Windows.Forms.Label();
-            this.cmLbl = new System.Windows.Forms.Label();
+            this.InLbl = new System.Windows.Forms.Label();
             this.LblTxtBx = new System.Windows.Forms.TextBox();
-            this.CmTxtBx = new System.Windows.Forms.TextBox();
+            this.InTxtBx = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.BMI_ResultLbl = new System.Windows.Forms.Label();
@@ -78,7 +78,7 @@
             this.Metric_Information.Controls.Add(this.KiloLbl);
             this.Metric_Information.Controls.Add(this.inchesLbl);
             this.Metric_Information.Controls.Add(this.KiloTextBox);
-            this.Metric_Information.Controls.Add(this.InchesTextBox);
+            this.Metric_Information.Controls.Add(this.CmTextBox);
             this.Metric_Information.Controls.Add(this.WeightLbl);
             this.Metric_Information.Controls.Add(this.HeightLbl);
             this.Metric_Information.Location = new System.Drawing.Point(95, 69);
@@ -107,9 +107,9 @@
             this.inchesLbl.AutoSize = true;
             this.inchesLbl.Location = new System.Drawing.Point(249, 42);
             this.inchesLbl.Name = "inchesLbl";
-            this.inchesLbl.Size = new System.Drawing.Size(31, 31);
+            this.inchesLbl.Size = new System.Drawing.Size(43, 31);
             this.inchesLbl.TabIndex = 6;
-            this.inchesLbl.Text = "in";
+            this.inchesLbl.Text = "cm";
             this.inchesLbl.UseWaitCursor = true;
             // 
             // KiloTextBox
@@ -120,13 +120,13 @@
             this.KiloTextBox.TabIndex = 4;
             this.KiloTextBox.UseWaitCursor = true;
             // 
-            // InchesTextBox
+            // CmTextBox
             // 
-            this.InchesTextBox.Location = new System.Drawing.Point(165, 35);
-            this.InchesTextBox.Name = "InchesTextBox";
-            this.InchesTextBox.Size = new System.Drawing.Size(72, 38);
-            this.InchesTextBox.TabIndex = 3;
-            this.InchesTextBox.UseWaitCursor = true;
+            this.CmTextBox.Location = new System.Drawing.Point(165, 35);
+            this.CmTextBox.Name = "CmTextBox";
+            this.CmTextBox.Size = new System.Drawing.Size(72, 38);
+            this.CmTextBox.TabIndex = 3;
+            this.CmTextBox.UseWaitCursor = true;
             // 
             // WeightLbl
             // 
@@ -152,12 +152,12 @@
             // 
             this.Imperial_information.BackColor = System.Drawing.Color.White;
             this.Imperial_information.Controls.Add(this.LbsLbl);
-            this.Imperial_information.Controls.Add(this.cmLbl);
+            this.Imperial_information.Controls.Add(this.InLbl);
             this.Imperial_information.Controls.Add(this.LblTxtBx);
-            this.Imperial_information.Controls.Add(this.CmTxtBx);
+            this.Imperial_information.Controls.Add(this.InTxtBx);
             this.Imperial_information.Controls.Add(this.label5);
             this.Imperial_information.Controls.Add(this.label6);
-            this.Imperial_information.Location = new System.Drawing.Point(105, 63);
+            this.Imperial_information.Location = new System.Drawing.Point(95, 63);
             this.Imperial_information.Name = "Imperial_information";
             this.Imperial_information.Size = new System.Drawing.Size(477, 180);
             this.Imperial_information.TabIndex = 8;
@@ -178,16 +178,16 @@
             this.LbsLbl.Text = "lbs";
             this.LbsLbl.UseWaitCursor = true;
             // 
-            // cmLbl
+            // InLbl
             // 
-            this.cmLbl.AutoSize = true;
-            this.cmLbl.Location = new System.Drawing.Point(229, 44);
-            this.cmLbl.Name = "cmLbl";
-            this.cmLbl.Size = new System.Drawing.Size(43, 31);
-            this.cmLbl.TabIndex = 5;
-            this.cmLbl.Text = "cm";
-            this.cmLbl.UseWaitCursor = true;
-            this.cmLbl.Click += new System.EventHandler(this.label4_Click);
+            this.InLbl.AutoSize = true;
+            this.InLbl.Location = new System.Drawing.Point(229, 44);
+            this.InLbl.Name = "InLbl";
+            this.InLbl.Size = new System.Drawing.Size(31, 31);
+            this.InLbl.TabIndex = 5;
+            this.InLbl.Text = "in";
+            this.InLbl.UseWaitCursor = true;
+            this.InLbl.Click += new System.EventHandler(this.label4_Click);
             // 
             // LblTxtBx
             // 
@@ -198,16 +198,16 @@
             this.LblTxtBx.UseWaitCursor = true;
             this.LblTxtBx.TextChanged += new System.EventHandler(this.LblTxtBx_TextChanged);
             // 
-            // CmTxtBx
+            // InTxtBx
             // 
-            this.CmTxtBx.AcceptsTab = true;
-            this.CmTxtBx.HideSelection = false;
-            this.CmTxtBx.Location = new System.Drawing.Point(165, 37);
-            this.CmTxtBx.Name = "CmTxtBx";
-            this.CmTxtBx.Size = new System.Drawing.Size(58, 38);
-            this.CmTxtBx.TabIndex = 2;
-            this.CmTxtBx.UseWaitCursor = true;
-            this.CmTxtBx.TextChanged += new System.EventHandler(this.imp_info);
+            this.InTxtBx.AcceptsTab = true;
+            this.InTxtBx.HideSelection = false;
+            this.InTxtBx.Location = new System.Drawing.Point(165, 37);
+            this.InTxtBx.Name = "InTxtBx";
+            this.InTxtBx.Size = new System.Drawing.Size(58, 38);
+            this.InTxtBx.TabIndex = 2;
+            this.InTxtBx.UseWaitCursor = true;
+            this.InTxtBx.TextChanged += new System.EventHandler(this.imp_info);
             // 
             // label5
             // 
@@ -238,6 +238,7 @@
             this.BMI_ResultLbl.Size = new System.Drawing.Size(273, 31);
             this.BMI_ResultLbl.TabIndex = 4;
             this.BMI_ResultLbl.Text = "Your Body Mass Index is : ";
+            this.BMI_ResultLbl.Visible = false;
             // 
             // ImperialButton
             // 
@@ -269,6 +270,7 @@
             this.ResultTextBx.Name = "ResultTextBx";
             this.ResultTextBx.Size = new System.Drawing.Size(444, 38);
             this.ResultTextBx.TabIndex = 9;
+            this.ResultTextBx.Visible = false;
             this.ResultTextBx.TextChanged += new System.EventHandler(this.ResultTextBx_TextChanged);
             // 
             // BMI_Form
@@ -311,15 +313,15 @@
         private System.Windows.Forms.Label KiloLbl;
         private System.Windows.Forms.Label inchesLbl;
         private System.Windows.Forms.TextBox KiloTextBox;
-        private System.Windows.Forms.TextBox InchesTextBox;
+        private System.Windows.Forms.TextBox CmTextBox;
         private System.Windows.Forms.Label BMI_ResultLbl;
         private System.Windows.Forms.RadioButton ImperialButton;
         private System.Windows.Forms.RadioButton MetricButton;
         private System.Windows.Forms.GroupBox Imperial_information;
         private System.Windows.Forms.Label LbsLbl;
-        private System.Windows.Forms.Label cmLbl;
+        private System.Windows.Forms.Label InLbl;
         private System.Windows.Forms.TextBox LblTxtBx;
-        private System.Windows.Forms.TextBox CmTxtBx;
+        private System.Windows.Forms.TextBox InTxtBx;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox ResultTextBx;

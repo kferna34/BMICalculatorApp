@@ -8,6 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+/*
+ * Author: Krytia Fernandez
+ * Date Lst Modified  = August 04 2016
+ * version: 0.0.0.6
+ */
 namespace BMICalculatorApp
 {
     public partial class BMI_Form : Form
@@ -39,7 +44,7 @@ namespace BMICalculatorApp
 
         private void button1_Click(object sender, EventArgs e)
         {
-        
+
         }
 
         private void ImperialButton_CheckedChanged(object sender, EventArgs e)
@@ -48,12 +53,12 @@ namespace BMICalculatorApp
             {
                 Imperial_information.Visible = true;
             }
-            else if ( ImperialButton.Checked == false)
+            else if (ImperialButton.Checked == false)
             {
                 Imperial_information.Visible = false;
             }
-            
-           
+
+
         }
 
         private void Information_Enter(object sender, EventArgs e)
@@ -63,7 +68,7 @@ namespace BMICalculatorApp
 
         private void MetricButton_CheckedChanged(object sender, EventArgs e)
         {
-            if(MetricButton.Checked == true)
+            if (MetricButton.Checked == true)
             {
                 Metric_Information.Visible = true;
             }
@@ -71,7 +76,7 @@ namespace BMICalculatorApp
             {
                 Metric_Information.Visible = false;
             }
-            
+
         }
 
         private void FeetTxtBx_TextChanged(object sender, EventArgs e)
@@ -101,37 +106,93 @@ namespace BMICalculatorApp
 
         private void ClearButton_Click(object sender, EventArgs e)
         {
+            LblTxtBx.Text = "";
+            KiloLbl.Text = "";
+            CmTextBox.Text = "";
+            InTxtBx.Text = "";
+            ResultTextBx.BackColor = Color.Beige;
+
+            //Visibility of the group box
             Imperial_information.Visible = false;
             Metric_Information.Visible = false;
         }
 
         private void Calculate_Click(object sender, EventArgs e)
         {
-            //converting textbox to int rather than string
+            //visibility 
+            BMI_ResultLbl.Visible = true;
+            ResultTextBx.Visible = true;
 
-            Int32 pounds = Convert.ToInt32(LblTxtBx.Text);
-            Int32 kilo = Convert.ToInt32(KiloTextBox.Text);
-            Int32 inches = Convert.ToInt32(InchesTextBox.Text);
-            Int32 centemeter = Convert.ToInt32(CmTxtBx.Text);
-            
-            
-           Int32 BMI = (pounds * 703) / (centemeter * centemeter) | (kilo) / (inches * inches);
-            ResultTextBx.Text = BMI.ToString();
+            double heightI = 0, heightM = 0, weightM = 0, weightI = 0, BMI;
+            //imperial inches, pounds
+            //metric  kilos, cm
+            try //for emperial
+            {
+                //converting textbox to double rather than string
 
+                weightI = Convert.ToDouble(LblTxtBx.Text);
+               // weightM = Convert.ToDouble(KiloTextBox.Text);
+                heightI = Convert.ToDouble(InTxtBx.Text);
+              //  heightM = Convert.ToDouble(CmTextBox.Text);
 
+            }
+            catch (Exception)
+            {
 
+                MessageBox.Show(" Please make sure all fields are filled");
+            }
+            if (LblTxtBx.Text == "" || CmTextBox.Text == "")
+            {
+                CmTextBox.Focus();
+                CmTextBox.SelectAll();
+                LblTxtBx.Focus();
+                LblTxtBx.SelectAll();
+                //InTxtBx.Focus();
+                //InTxtBx.SelectAll();
+                //KiloTextBox.Focus();
+                //KiloTextBox.SelectAll();
+            }
+            //else if (heightI < 0 && heightM < 0 || weightI < 0 && weightM < 0)
+            //{
+            //    MessageBox.Show("Please make sure all values are positive");
+            //}
+            else if (heightI < 0 && heightM < 0 || weightI < 0 && weightM < 0)
+            {
+                if (ImperialButton.Checked == true)
+                {
+                    BMI = (weightI * 703) / (heightI * heightI);
+                    if (BMI < 18.5)
+                    {
+                        this.ResultTextBx.Text = ("Underweight");
+
+                    }
+                    else if (BMI >= 18.5 && BMI <= 24.9)
+                    {
+                        this.ResultTextBx.Text = ("Normal");
+
+                    }
+                    else if (BMI >= 25 && BMI <= 29.9)
+                    {
+                        this.ResultTextBx.Text = ("Overweight");
+
+                    }
+                    else if (BMI >= 30)
+                    {
+                        this.ResultTextBx.Text = ("Obese");
+                    }
+                }
+            }
         }
-
         private void LblTxtBx_TextChanged(object sender, EventArgs e)
         {
 
-            
-            
+
+
         }
 
         private void ResultTextBx_TextChanged(object sender, EventArgs e)
         {
-            
+
         }
     }
 }
