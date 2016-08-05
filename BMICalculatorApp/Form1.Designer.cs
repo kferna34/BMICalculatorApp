@@ -54,7 +54,7 @@
             // 
             // CalculateButton
             // 
-            this.CalculateButton.Location = new System.Drawing.Point(95, 481);
+            this.CalculateButton.Location = new System.Drawing.Point(95, 544);
             this.CalculateButton.Name = "CalculateButton";
             this.CalculateButton.Size = new System.Drawing.Size(172, 38);
             this.CalculateButton.TabIndex = 1;
@@ -64,7 +64,7 @@
             // 
             // ClearBtn
             // 
-            this.ClearBtn.Location = new System.Drawing.Point(378, 481);
+            this.ClearBtn.Location = new System.Drawing.Point(374, 544);
             this.ClearBtn.Name = "ClearBtn";
             this.ClearBtn.Size = new System.Drawing.Size(172, 38);
             this.ClearBtn.TabIndex = 2;
@@ -267,9 +267,9 @@
             // ResultTextBx
             // 
             this.ResultTextBx.Location = new System.Drawing.Point(105, 376);
+            this.ResultTextBx.Multiline = true;
             this.ResultTextBx.Name = "ResultTextBx";
-            this.ResultTextBx.ReadOnly = true;
-            this.ResultTextBx.Size = new System.Drawing.Size(444, 38);
+            this.ResultTextBx.Size = new System.Drawing.Size(467, 153);
             this.ResultTextBx.TabIndex = 9;
             this.ResultTextBx.Visible = false;
             this.ResultTextBx.TextChanged += new System.EventHandler(this.ResultTextBx_TextChanged);
